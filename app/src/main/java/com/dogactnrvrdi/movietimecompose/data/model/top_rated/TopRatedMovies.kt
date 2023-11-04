@@ -11,7 +11,7 @@ data class TopRatedMovies(
     @SerializedName("total_results") val totalResults: Int
 )
 
-fun TopRatedMovies.toMovie(): List<com.dogactnrvrdi.movietimecompose.domain.model.Movie> {
+fun TopRatedMovies.toMovieList(): List<com.dogactnrvrdi.movietimecompose.domain.model.Movie> {
     return results.map { movie ->
         com.dogactnrvrdi.movietimecompose.domain.model.Movie(
             originalLanguage = movie.originalLanguage,

@@ -11,7 +11,7 @@ data class SearchMovies(
     @SerializedName("total_results") val totalResults: Int
 )
 
-fun SearchMovies.toMovie(): List<com.dogactnrvrdi.movietimecompose.domain.model.Movie> {
+fun SearchMovies.toMovieList(): List<com.dogactnrvrdi.movietimecompose.domain.model.Movie> {
     return results.map { movie ->
         com.dogactnrvrdi.movietimecompose.domain.model.Movie(
             originalLanguage = movie.originalLanguage,
