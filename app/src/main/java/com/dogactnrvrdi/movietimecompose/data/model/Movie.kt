@@ -18,3 +18,14 @@ data class Movie(
     val title: String,
     val video: Boolean
 )
+
+fun Movie.toMovieDetails(): com.dogactnrvrdi.movietimecompose.domain.model.Movie {
+    return com.dogactnrvrdi.movietimecompose.domain.model.Movie(
+        originalLanguage = originalLanguage,
+        posterPath = posterPath,
+        releaseDate = releaseDate,
+        id = id,
+        overview = overview,
+        title = title
+    )
+}
