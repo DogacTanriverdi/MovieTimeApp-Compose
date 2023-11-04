@@ -64,8 +64,8 @@ fun AppNavigation() {
             startDestination = Screen.HomeScreen.route,
             modifier = Modifier.padding(paddingValues)
         ) {
-            composable(route = Screen.HomeScreen.route) { HomeScreen() }
-            composable(route = Screen.SearchScreen.route) { SearchScreen() }
+            composable(route = Screen.HomeScreen.route) { HomeScreen(navController) }
+            composable(route = Screen.SearchScreen.route) { SearchScreen(navController) }
             composable(route = Screen.FavoritesScreen.route) { FavoritesScreen() }
             composable(route = Screen.DetailsScreen.route) { DetailsScreen() }
         }
