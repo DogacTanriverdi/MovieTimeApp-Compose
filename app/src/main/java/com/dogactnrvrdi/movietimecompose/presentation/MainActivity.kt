@@ -13,7 +13,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MovieTimeComposeTheme {
-                // A surface container using the 'background' color from the theme
                 AppNavigation()
             }
         }

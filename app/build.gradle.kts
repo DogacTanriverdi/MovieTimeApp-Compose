@@ -102,4 +102,6 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil-compose:1.3.2")
+
+    implementation("com.github.chuckerteam.chucker:library:4.0.0")
 }

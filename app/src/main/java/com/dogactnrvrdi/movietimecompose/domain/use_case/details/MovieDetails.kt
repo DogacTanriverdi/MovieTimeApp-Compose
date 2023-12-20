@@ -2,7 +2,6 @@ package com.dogactnrvrdi.movietimecompose.domain.use_case.details
 
 import com.dogactnrvrdi.movietimecompose.common.Resource
 import com.dogactnrvrdi.movietimecompose.data.model.toMovieDetails
-import com.dogactnrvrdi.movietimecompose.data.model.top_rated.toMovieList
 import com.dogactnrvrdi.movietimecompose.domain.model.Movie
 import com.dogactnrvrdi.movietimecompose.domain.repo.MovieRepository
 import kotlinx.coroutines.flow.Flow

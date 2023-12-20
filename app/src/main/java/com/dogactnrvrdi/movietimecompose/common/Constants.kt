@@ -12,4 +12,6 @@ object Constants {
     const val UPCOMING_MOVIES = "movie/upcoming"
     const val SEARCH_MOVIES = "search/movie"
     const val MOVIE_DETAILS = "movie/{id}"
+
+    const val MOVIE_ID = "id"
 }
