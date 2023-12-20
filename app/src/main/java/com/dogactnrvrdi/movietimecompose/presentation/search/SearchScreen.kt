@@ -54,5 +54,5 @@ fun SearchScreen(
 }
 
 private fun navigate(navController: NavController, movie: Movie) {
-    navController.navigate(Screen.DetailsScreen.route + "/${movie.id}")
+    navController.navigate(Screen.DetailsScreen.route + "?id=${movie.id}")
 }

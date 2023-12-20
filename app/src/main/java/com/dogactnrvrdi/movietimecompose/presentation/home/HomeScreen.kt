@@ -44,10 +44,7 @@ fun HomeScreen(
         LazyRow() {
             items(topRatedState.movies) { movie ->
                 HomeMovieListRow(movie = movie, onItemClick = {
-                    navController.navigate(
-                        route = Screen.DetailsScreen.route +
-                        "?id=${movie.id}"
-                    )
+                    navigate(navController, movie)
                 })
             }
         }
@@ -59,10 +56,7 @@ fun HomeScreen(
         LazyRow() {
             items(popularState.movies) { movie ->
                 HomeMovieListRow(movie = movie, onItemClick = {
-                    navController.navigate(
-                        route = Screen.DetailsScreen.route +
-                                "?id=${movie.id}"
-                    )
+                    navigate(navController, movie)
                 })
             }
         }
@@ -74,10 +68,7 @@ fun HomeScreen(
         LazyRow() {
             items(upcomingState.movies) { movie ->
                 HomeUpcomingMoviesListRow(movie = movie, onItemClick = {
-                    navController.navigate(
-                        route = Screen.DetailsScreen.route +
-                                "?id=${movie.id}"
-                    )
+                    navigate(navController, movie)
                 })
             }
         }
@@ -93,4 +84,8 @@ fun CustomText(text: String) {
         fontSize = 25.sp,
         fontWeight = FontWeight.Bold
     )
+}
+
+private fun navigate(navController: NavController, movie: Movie) {
+    navController.navigate(Screen.DetailsScreen.route + "?id=${movie.id}")
 }
