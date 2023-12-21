@@ -40,12 +40,12 @@ fun MovieSearchBar(
         mutableStateOf(hint != "")
     }
 
-    Box(modifier = modifier.border(1.dp, Color.DarkGray, CircleShape)) {
+    Box(modifier = modifier.border(1.dp, Color.DarkGray, RoundedCornerShape(10.dp))) {
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .shadow(3.dp, CircleShape)
-                .background(Color.LightGray, CircleShape)
+                .shadow(3.dp, RoundedCornerShape(10.dp))
+                .background(Color.LightGray, RoundedCornerShape(10.dp))
                 .padding(horizontal = 20.dp)
                 .onFocusChanged {
                     isHintDisplayed = it.isFocused != true && text.isEmpty()
@@ -66,7 +66,7 @@ fun MovieSearchBar(
 
         if (isHintDisplayed) {
             Text(
-                modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+                modifier = Modifier.padding(horizontal = 20.dp, vertical = 15.dp),
                 text = hint,
                 color = Color.DarkGray
             )

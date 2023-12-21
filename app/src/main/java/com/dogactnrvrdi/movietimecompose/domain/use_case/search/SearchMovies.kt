@@ -14,7 +14,6 @@ import javax.inject.Inject
 class SearchMovies @Inject constructor(
     private val repo: MovieRepository
 ) {
-
     fun executeSearchMovies(searchQuery: String): Flow<Resource<List<Movie>>> = flow {
         try {
             emit(Resource.Loading())

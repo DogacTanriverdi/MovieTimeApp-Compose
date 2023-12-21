@@ -14,4 +14,6 @@ object Constants {
     const val MOVIE_DETAILS = "movie/{id}"
 
     const val MOVIE_ID = "id"
+
+    const val MOVIE_TABLE = "movie_db"
 }

@@ -69,7 +69,7 @@ fun AppNavigation() {
         ) {
             composable(route = Screen.HomeScreen.route) { HomeScreen(navController) }
             composable(route = Screen.SearchScreen.route) { SearchScreen(navController) }
-            composable(route = Screen.FavoritesScreen.route) { FavoritesScreen() }
+            composable(route = Screen.FavoritesScreen.route) { FavoritesScreen(navController) }
             composable(route = Screen.DetailsScreen.route + "?id={id}",
                 arguments = listOf(
                     navArgument(name = "id") {
@@ -77,10 +77,8 @@ fun AppNavigation() {
                     }
                 )
             ) {
-                DetailsScreen()
+                DetailsScreen(navController = navController)
             }
-
-
         }
     }
 }

@@ -24,10 +24,7 @@ class SearchViewModel @Inject constructor(
     private var job: Job? = null
 
     fun getMovies(searchQuery: String) {
-        job?.cancel()
-
-        job = useCase.executeSearchMovies(searchQuery).onEach { movies ->
-
+        useCase.executeSearchMovies(searchQuery).onEach { movies ->
             when (movies) {
 
                 is Resource.Success -> {
@@ -48,8 +45,13 @@ class SearchViewModel @Inject constructor(
 
     fun onEvent(event: SearchEvent) {
         when (event) {
+
             is SearchEvent.Search -> {
                 getMovies(event.searchQuery)
+            }
+
+            is SearchEvent.Back -> {
+                event.navController.navigateUp()
             }
         }
     }

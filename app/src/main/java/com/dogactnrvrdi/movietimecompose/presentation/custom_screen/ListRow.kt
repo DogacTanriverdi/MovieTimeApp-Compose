@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,7 +32,7 @@ fun HomeMovieListRow(
     movie: Movie,
     onItemClick: (Movie) -> Unit
 ) {
-    Column(modifier = Modifier
+    Column(modifier = Modifier.width(200.dp)
         .clickable {
             onItemClick(movie)
         }
@@ -50,9 +51,11 @@ fun HomeMovieListRow(
 
         Text(
             modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            text = movie.title,
+                .align(Alignment.CenterHorizontally)
+                .width(200.dp),
+            text = movie.title ?: "",
             fontSize = 20.sp,
+            maxLines = 1,
             overflow = TextOverflow.Clip,
             color = Color.Black,
             textAlign = TextAlign.Center
@@ -66,7 +69,7 @@ fun HomeUpcomingMoviesListRow(
     movie: Movie,
     onItemClick: (Movie) -> Unit
 ) {
-    Column(modifier = Modifier
+    Column(modifier = Modifier.width(200.dp)
         .clickable {
             onItemClick(movie)
         }
@@ -85,8 +88,10 @@ fun HomeUpcomingMoviesListRow(
 
         Text(
             modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            text = movie.title,
+                .align(Alignment.CenterHorizontally)
+                .width(200.dp),
+            text = movie.title ?: "",
+            maxLines = 1,
             fontSize = 20.sp,
             overflow = TextOverflow.Clip,
             color = Color.Black,
@@ -95,8 +100,10 @@ fun HomeUpcomingMoviesListRow(
 
         Text(
             modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            text = movie.releaseDate,
+                .align(Alignment.CenterHorizontally)
+                .width(200.dp),
+            text = movie.releaseDate ?: "",
+            maxLines = 1,
             fontSize = 20.sp,
             overflow = TextOverflow.Clip,
             color = Color.Magenta,
@@ -135,20 +142,58 @@ fun SearchMovieListRow(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = movie.title,
+                text = movie.title ?: "",
                 style = MaterialTheme.typography.headlineMedium,
                 overflow = TextOverflow.Ellipsis,
+                maxLines = 4,
                 color = Color.Black,
                 textAlign = TextAlign.Center
             )
 
             Text(
-                text = movie.releaseDate,
+                text = movie.releaseDate ?: "",
                 style = MaterialTheme.typography.headlineSmall,
                 overflow = TextOverflow.Ellipsis,
                 color = Color.Black,
                 textAlign = TextAlign.Center
             )
         }
+    }
+}
+
+@OptIn(ExperimentalCoilApi::class)
+@Composable
+fun FavoritesMovieListRow(
+    movie: Movie,
+    onItemClick: (Movie) -> Unit
+) {
+    Row(modifier = Modifier.fillMaxWidth()
+        .clickable {
+            onItemClick(movie)
+        }
+        .padding(10.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+
+        Image(
+            modifier = Modifier
+                .padding(bottom = 5.dp)
+                .size(200.dp)
+                .clip(RectangleShape),
+            painter = rememberImagePainter(data = Constants.BASE_IMAGE_URL + movie.posterPath),
+            contentDescription = "${movie.title} poster"
+        )
+
+        Text(
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .width(200.dp),
+            text = movie.title ?: "",
+            fontSize = 20.sp,
+            maxLines = 5,
+            overflow = TextOverflow.Clip,
+            color = Color.Black,
+            textAlign = TextAlign.Center
+        )
     }
 }
